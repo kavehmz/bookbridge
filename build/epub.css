@@ -1,0 +1,81 @@
+/* Bilingual reader — EPUB styling */
+body {
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  line-height: 1.5;
+  margin: 0 5%;
+}
+h1 {
+  font-size: 1.5em;
+  margin-top: 1.4em;
+  page-break-before: always;
+}
+p {
+  margin: 0.6em 0;
+  text-align: left;
+}
+
+/* German gloss: warm brick-red, italic — matches the PDF colour #555555 */
+span.de {
+  color: #555555;
+  font-style: italic;
+}
+/* Emphasis carried into a German gloss shows as upright (stands out within italic) */
+span.de em,
+span.de i {
+  font-style: normal;
+  font-weight: inherit;
+}
+
+/* The "How to read" intro */
+h1.unnumbered { page-break-before: avoid; }
+
+/* Optional grammar interludes — calm teal "teacher's note" box, clearly NOT a
+   translation. Target the CLASS (pandoc emits <section class="grammar">). */
+.grammar {
+  border: 1px solid #2f7d6e;
+  border-left: 5px solid #2f7d6e;
+  background: #eef6f4;
+  border-radius: 6px;
+  padding: 0.7em 1em;
+  margin: 1.5em 0;
+  font-size: 0.95em;
+}
+.grammar h4 {
+  margin: 0 0 0.5em 0;
+  color: #0026E1;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+.grammar p { margin: 0.45em 0; }
+/* German examples inside the box: teal, not red, so the box stays self-contained */
+.grammar em { color: #001CB0; font-style: italic; }
+
+/* ------------------------------------------------------------------
+   ALTERNATIVE: Kindle / e-ink colour scheme ("scheme X", owner-tested
+   on Kindle Colorsoft + Paperwhite, June 2026). E-ink washes out the
+   muted brick/teal above; full-saturation red/blue survive it and
+   degrade to two distinct greys on B&W Kindles. For a Kindle-destined
+   book, replace the span.de and .grammar rules above with these and
+   rebuild the EPUB only (PDF colours stay as they are).
+
+span.de {
+  color: #E10600;
+  font-style: italic;
+}
+.grammar {
+  border: 2px solid #0026E1;
+  border-left: 6px solid #0026E1;
+  background: #E4E9FC;
+  border-radius: 6px;
+  padding: 0.7em 1em;
+  margin: 1.5em 0;
+  font-size: 0.95em;
+}
+.grammar h4 {
+  margin: 0 0 0.5em 0;
+  color: #0026E1;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+.grammar em { color: #001CB0; font-style: italic; }
+------------------------------------------------------------------ */

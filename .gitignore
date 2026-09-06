@@ -1,0 +1,41 @@
+# Bilingual German Readers — this repo commits ONLY the reusable procedure,
+# scripts, and documentation. The actual book content is intentionally NOT
+# committed: downloaded Project Gutenberg texts, the per-book translations
+# (markdown), and the generated PDFs/EPUBs are large and for personal study
+# only — they are regenerated on demand from the procedure.
+#
+# Strategy: ignore everything at the repo root, then allow-list the tooling.
+# This way any NEW book folder you download later is ignored automatically.
+
+/*
+
+# --- keep (the procedure + scripts + docs) ---
+!/.gitignore
+!/README.md
+!/CLAUDE.md
+!/instruction.md
+!/prompt.md
+!/sample.png
+!/build/
+!/docs/
+
+# --- never track these anywhere, even inside allowed dirs ---
+*.pdf
+*.epub
+.DS_Store
+.claude/
+
+# --- except published downloads: public-domain books, safe to distribute ---
+!/releases/
+!/releases/*.epub
+!/releases/*.pdf
+
+# Notes:
+# - texts/   — local cache of downloaded Project Gutenberg .txt files (one folder
+#              per book). Ignored. Not needed in the repo: re-downloadable from
+#              gutenberg.org on demand; kept only to avoid re-downloading.
+# - books/   — the working directory: per-book dirs with source/, markdown/,
+#              markdown/parts/, build/, pdf/, grammar-test/. Ignored (large;
+#              personal study; regenerated on demand).
+# - The canonical, generic build assets live in /build and ARE committed; the
+#   procedure copies them into each book's  books/<book>/build/.

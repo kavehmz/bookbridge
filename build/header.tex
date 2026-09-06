@@ -1,0 +1,27 @@
+% --- Bilingual reader styling (pdflatex engine) ---
+\usepackage{mathpazo}         % Palatino: elegant serif, good for long reading
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage[most]{tcolorbox}   % framed grammar-interlude boxes (optional feature)
+
+% German gloss colour (warm brick/brown, like the sample)
+\definecolor{germ}{HTML}{555555}
+% Grammar-box accent (calm teal — clearly NOT a translation)
+\definecolor{gramm}{HTML}{0026E1}
+% ALTERNATIVE: Kindle / e-ink scheme "X" (owner-tested June 2026) — pure red
+% gloss + blue grammar box; must match the alternative block in epub.css.
+% To use, comment out the two lines above and uncomment these:
+%\definecolor{germ}{HTML}{E10600}
+%\definecolor{gramm}{HTML}{0026E1}
+
+% Comfortable reading: a little extra leading and paragraph spacing
+\setstretch{1.18}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+
+% Don't let long bilingual paragraphs trigger overfull-box warnings as errors
+\tolerance=2000
+\emergencystretch=3em
+\hyphenpenalty=2000

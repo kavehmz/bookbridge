@@ -1,0 +1,17 @@
+# arm64-friendly pandoc + minimal TeX Live for building the bilingual PDF.
+FROM docker.io/library/ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      pandoc \
+      texlive-latex-base \
+      texlive-latex-recommended \
+      texlive-latex-extra \
+      texlive-fonts-recommended \
+      lmodern \
+      fonts-texgyre \
+      poppler-utils \
+      ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /data
